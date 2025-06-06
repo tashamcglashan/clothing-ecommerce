@@ -24,6 +24,7 @@ const addToCart = (item) => {
   return (
     <>
       <Navbar cartItems={ cartItems} />
+      
       <Routes>
       <Route path="/" element={<Home addToCart={addToCart} />} />
         <Route path="/signup" element={<SignUp />} />

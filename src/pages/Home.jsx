@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css'; // For styling later
 import { Link } from 'react-router-dom'; 
+import Hero from '../components/Hero.jsx';
+
+
 
 export default function Home({ addToCart }) {
   const [products, setProducts] = useState([]);
@@ -22,6 +25,7 @@ export default function Home({ addToCart }) {
 
   return (
     <div className="home-page">
+    <Hero />
       <h2>New Arrivals</h2>
       <div className="product-grid">
         {products.length === 0 ? (
