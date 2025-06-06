@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { fetchProducts } from '../api/fetchProducts';
 import './Home.css'; // For styling later
+import { Link } from 'react-router-dom'; 
 
 export default function Home({ addToCart }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     async function loadProducts() {
-      const data = await fetchProducts();
-      console.log("📦 Products loaded:", data);
-      setProducts(data);
+      try {
+        const response = await fetch('https://dummyjson.com/products');
+        const data = await response.json();
+        console.log("📦 Products loaded:", data.products);
+        setProducts(data.products);
+      } catch (error) {
+        console.error("Failed to load products:", error);
+      }
     }
+  
     loadProducts();
   }, []);
 
@@ -23,12 +29,13 @@ export default function Home({ addToCart }) {
         ) : (
           products.map((product) => (
             <div key={product.id} className="product-card">
+              <Link to={`/product/${product.id}`}>
               <img 
-                src={product.image} 
+                src={product.thumbnail} 
                 alt={product.title}
-/>
-
+                />
               <h3>{product.title}</h3>
+              </Link>
               <p>${product.price.toFixed(2)}</p>
               <button onClick={() => addToCart(product)}>Add to Cart</button>
             </div>

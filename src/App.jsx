@@ -1,3 +1,4 @@
+import ProductDetail from './pages/ProductDetail.jsx';
 import Navbar from './components/Navbar.jsx';
 import { Routes, Route } from 'react-router-dom';
 import SignUp from './pages/SignUp.jsx';
@@ -14,14 +15,21 @@ function App() {
 const addToCart = (item) => { 
     setCartItems([...cartItems, item]);
   };
+
+  const removeFromCart = (index) => {
+    const updatedCart = [...cartItems];
+    updatedCart.splice(index, 1);
+    setCartItems(updatedCart);
+  }
   return (
     <>
-      <Navbar />
+      <Navbar cartItems={ cartItems} />
       <Routes>
       <Route path="/" element={<Home addToCart={addToCart} />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/cart" element={<Cart cartItems={cartItems} />} />
+        <Route path="/cart" element={<Cart cartItems={cartItems} removeFromCart={removeFromCart} />} />
+        <Route path="/product/:id" element={<ProductDetail addToCart={addToCart} />} />
         
       </Routes>
     </>

@@ -35,3 +35,26 @@ body {
     color: #f6bf66;
   }
   
+  /* Cart badge */
+
+  .cart-link {
+    position: relative;
+    display: inline-block;
+    margin-left: 16px;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -24px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    line-height: 1;
+  }
+  

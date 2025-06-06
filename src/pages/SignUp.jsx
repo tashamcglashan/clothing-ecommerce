@@ -22,6 +22,7 @@ export default function SignUp() {
     }
   };
 
+   console.log("SignUp page is working correctly");
   return (
     <div className="signup-page">
       <h2>Create Account</h2>
