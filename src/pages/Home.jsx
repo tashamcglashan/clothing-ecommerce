@@ -5,7 +5,7 @@ import Hero from '../components/Hero.jsx';
 
 
 
-export default function Home({ addToCart }) {
+export default function Home({ addToCart, user }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -22,6 +22,8 @@ export default function Home({ addToCart }) {
   
     loadProducts();
   }, []);
+
+  console.log ("Current user:", user);
 
   return (
     <div className="home-page">

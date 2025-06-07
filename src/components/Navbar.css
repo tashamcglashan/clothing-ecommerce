@@ -58,3 +58,11 @@ body {
     line-height: 1;
   }
   
+  .logout-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
