@@ -8,12 +8,19 @@ import upShop from '../assets/UpShop.png';
 export default function Navbar({ cartItems, user }) {
   const navigate = useNavigate();
   const itemCount = cartItems?.length || 0;
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleLogout = async () => {
     await signOut(auth);
     navigate('/');
   };
 
+   const handleSearch = (e) => {
+    e.preventDefault(); //prevent page reload
+    if (searchTerm.trim()) {
+      navigate(`/search?query=${searchTerm}`);
+    }
+  };
   return (
     <nav className="navbar">
       <div className="navbar__left">
@@ -21,6 +28,18 @@ export default function Navbar({ cartItems, user }) {
           <img src={upShop} alt="UpShop Logo" className="navbar__logo" />
         </Link>
       </div>
+
+      {/* ✅ Search bar */}
+      <form onSubmit={handleSearch} className="navbar__search">
+        <input
+          type="text"
+          placeholder="Search products..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="search-input"
+        />
+        <button type="submit" className="search-btn">Search</button>
+      </form>
 
       <div className="navbar__right">
         <Link to="/signup">Sign Up</Link>

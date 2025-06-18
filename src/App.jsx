@@ -1,6 +1,6 @@
 import ProductDetail from './pages/ProductDetail.jsx';
 import Navbar from './components/Navbar.jsx';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Router } from 'react-router-dom';
 import SignUp from './pages/SignUp.jsx';
 import SignIn from './pages/SignIn.jsx';
 import Cart from './pages/Cart.jsx';
@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react'; // ✅ include useEffect
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase.js'; // ✅ your firebase config
 import viteLogo from '/vite.svg';
-
+import SearchResults from './pages/SearchResults.jsx';
 import './App.css';
 
 function App() {
@@ -52,6 +52,7 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/cart" element={<Cart cartItems={cartItems} removeFromCart={removeFromCart} />} />
         <Route path="/product/:id" element={<ProductDetail addToCart={addToCart} user={user} />} />
+        <Route path="/search" element={<SearchResults/>} />
       </Routes>
     </>
   );
