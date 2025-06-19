@@ -1,6 +1,6 @@
 import ProductDetail from './pages/ProductDetail.jsx';
 import Navbar from './components/Navbar.jsx';
-import { Routes, Route, Router } from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import SignUp from './pages/SignUp.jsx';
 import SignIn from './pages/SignIn.jsx';
 import Cart from './pages/Cart.jsx';
