@@ -1,0 +1,15 @@
+/* src/components/Filter.css */
+.navbar__search {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+  }
+  
+  .search-input {
+    padding: .5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 200px;
+  }
+  
