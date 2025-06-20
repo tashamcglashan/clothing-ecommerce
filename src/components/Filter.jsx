@@ -1,5 +1,5 @@
 import React from 'react';
-import './Filter.jsx';  
+import './Filter.css';  
 
 export default function Filter({ options, value, onChange }) {
   return (
